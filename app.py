@@ -45,7 +45,7 @@ def get_prediction():
     baby_df = pd.DataFrame(baby_data)
 
     # Load the trained machine learning model from pickle file
-    with open("model/model1.pkl", 'rb') as obj:
+    with open("model1.pkl", 'rb') as obj:
         mymodel = pickle.load(obj)
 
     # Make prediction on user input data
