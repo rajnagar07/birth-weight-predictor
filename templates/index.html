@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birth Weight Prediction</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6dd5fa, #2980b9);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-container h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #34495e;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      border-color: #2980b9;
+      box-shadow: 0px 0px 8px rgba(41, 128, 185, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #2980b9;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1f5f8b;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form action="/predict" method="POST">
+      <h1>Predict Birth Weight of Your Child</h1>
+
+      <div class="form-group">
+        <label for="gestation">Gestation</label>
+        <input type="number" name="gestation" required>
+      </div>
+
+      <div class="form-group">
+        <label for="parity">Parity</label>
+        <input type="number" name="parity" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" name="age" required>
+      </div>
+
+      <div class="form-group">
+        <label for="height">Height</label>
+        <input type="number" name="height" required>
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" required>
+      </div>
+
+      <div class="form-group">
+        <label for="smoke">Smoke</label>
+        <input type="number" name="smoke" required>
+      </div>
+
+      <button type="submit">Predict Birth Weight</button>
+    </form>
+    <h3>Predicted Birth Weight : {{prediction}}</h3>
+  </div>
+</body>
+</html>
